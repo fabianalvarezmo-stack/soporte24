@@ -3,11 +3,16 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Monitor } from 'lucide-react';
 
 const carouselImages = [
-  "/soporte24/img/2025-12-05%at%00.51.29.jpeg",
-  "/soporte24/img/a%piso_22.jpg",
-  "/soporte24/img/3.jpg",
-  "/soporte24/img/4.jpg",
-  "/soporte24/img/5.jpg"
+  "/soporte24/img/001.jpg",
+  "/soporte24/img/002.jpg",
+  "/soporte24/img/003.jpg",
+  "/soporte24/img/004.jpg",
+  "/soporte24/img/005.jpg",
+  "/soporte24/img/006.jpg",
+  "/soporte24/img/007.jpg",
+  "/soporte24/img/008.jpg",
+  "/soporte24/img/009.jpg",
+  "/soporte24/img/010.jpg"
 ];
 
 export default function Hero() {
