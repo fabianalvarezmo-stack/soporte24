@@ -41,7 +41,7 @@ export default function Footer() {
               <li><Link to="/nosotros" className="hover:text-brand-primary transition-colors">Nosotros</Link></li>
               <li><Link to="/proyectos" className="hover:text-brand-primary transition-colors">Proyectos</Link></li>
               <li><Link to="/blog" className="hover:text-brand-primary transition-colors">Blog Técnico</Link></li>
-              <li><Link to="/soporte-express" className="hover:text-brand-primary transition-colors">Soporte Express</Link></li>
+              <li><Link to="/contacto" className="hover:text-brand-primary transition-colors">Contacto</Link></li>
             </ul>
           </div>
 
@@ -54,7 +54,11 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={20} className="text-brand-primary flex-shrink-0" />
-                <span>+56 9 9579 1499</span>
+                <span>Móvil: +56 9 9579 1499</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone size={20} className="text-brand-primary flex-shrink-0" />
+                <span>Fijo: +56 222667206</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-brand-primary flex-shrink-0" />

@@ -35,7 +35,6 @@ export default function Header() {
     { name: 'Equipos', href: '/equipos' },
     { name: 'Proyectos', href: '/proyectos' },
     { name: 'Blog Técnico', href: '/blog' },
-    { name: 'Soporte Express', href: '/soporte-express' },
     { name: 'Contacto', href: '/contacto' },
   ];
 

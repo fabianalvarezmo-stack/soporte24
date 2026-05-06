@@ -87,7 +87,8 @@ export default function QuoteForm() {
             <div className="mt-12 p-8 bg-neutral-900 rounded-[2rem] text-white">
                <p className="text-sm text-neutral-400 uppercase tracking-widest font-bold mb-2">Contacto Directo</p>
                <div className="text-2xl font-bold mb-2">contacto@soporte24horas.cl</div>
-               <div className="text-brand-primary">+56 9 9579 1499</div>
+               <div className="text-brand-primary">Móvil: +56 9 9579 1499</div>
+               <div className="text-brand-primary">Fijo: +56 222667206</div>
             </div>
           </div>
 

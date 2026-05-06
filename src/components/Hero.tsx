@@ -47,7 +47,7 @@ export default function Hero() {
             </h1>
             
             <p className="text-lg text-brand-muted mb-10 leading-relaxed max-w-xl text-balance">
-              Equipamiento de última generación para oficinas, home office y eventos en Santiago de Chile. Notebooks, Apple, Pantallas LED y Soporte Express 24/7.
+              Equipamiento de última generación para oficinas, home office y eventos en Santiago de Chile. Notebooks, Apple, Pantallas LED
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">

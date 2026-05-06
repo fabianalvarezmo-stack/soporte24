@@ -11,7 +11,6 @@ import Nosotros from './pages/Nosotros';
 import Equipos from './pages/Equipos';
 import Proyectos from './pages/Proyectos';
 import Blog from './pages/Blog';
-import SoporteExpress from './pages/SoporteExpress';
 import Contacto from './pages/Contacto';
 
 export default function App() {
@@ -26,7 +25,6 @@ export default function App() {
             <Route path="/equipos" element={<Equipos />} />
             <Route path="/proyectos" element={<Proyectos />} />
             <Route path="/blog" element={<Blog />} />
-            <Route path="/soporte-express" element={<SoporteExpress />} />
             <Route path="/contacto" element={<Contacto />} />
           </Routes>
         </main>
