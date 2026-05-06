@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import { Mail, Phone, MapPin, Instagram, Facebook, Linkedin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Mail, Phone, MapPin } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -10,60 +10,51 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           <div className="space-y-6">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-brand-primary rounded flex items-center justify-center text-white font-black text-lg">
-                S
+              <div className="h-10 md:h-12 overflow-hidden flex items-center">
+                <img 
+                   src="https://soporte24horas.cl/wp-content/uploads/2021/04/logo-soporte.png" 
+                   alt="Soporte 24 Horas" 
+                   className="h-full w-auto object-contain brightness-0 invert" 
+                   referrerPolicy="no-referrer"
+                />
               </div>
-              <span className="font-extrabold text-xl tracking-tight uppercase">
-                Soporte<span className="text-brand-primary">24</span>Horas
-              </span>
             </div>
             <p className="text-brand-muted text-sm leading-relaxed">
               Líderes en arriendo de tecnología para corporaciones, eventos y home office en todo Chile. Compromiso total con tu continuidad operativa a través de infraestructura moderna.
             </p>
-            <div className="flex gap-4">
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-primary transition-colors">
-                <Instagram size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-primary transition-colors">
-                <Facebook size={18} />
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-brand-primary transition-colors">
-                <Linkedin size={18} />
-              </a>
-            </div>
           </div>
 
           <div>
-            <h4 className="font-bold text-lg mb-6">Equipos</h4>
-            <ul className="space-y-4 text-neutral-400">
-              <li><a href="#equipos" className="hover:text-white transition-colors">Notebooks Corporativos</a></li>
-              <li><a href="#equipos" className="hover:text-white transition-colors">Computadores de Escritorio</a></li>
-              <li><a href="#equipos" className="hover:text-white transition-colors">Pantallas LED y Touch</a></li>
-              <li><a href="#equipos" className="hover:text-white transition-colors">Proyectores y Telones</a></li>
-              <li><a href="#equipos" className="hover:text-white transition-colors">Impresoras Multifuncionales</a></li>
+            <h4 className="font-bold text-lg mb-6 uppercase tracking-tight">Equipos</h4>
+            <ul className="space-y-4 text-neutral-400 text-sm">
+              <li><Link to="/equipos" className="hover:text-brand-primary transition-colors">Notebooks Corporativos</Link></li>
+              <li><Link to="/equipos" className="hover:text-brand-primary transition-colors">Computadores de Escritorio</Link></li>
+              <li><Link to="/equipos" className="hover:text-brand-primary transition-colors">Pantallas LED y Touch</Link></li>
+              <li><Link to="/equipos" className="hover:text-brand-primary transition-colors">Proyectores y Telones</Link></li>
+              <li><Link to="/equipos" className="hover:text-brand-primary transition-colors">Impresoras Multifuncionales</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-lg mb-6">Empresa</h4>
-            <ul className="space-y-4 text-neutral-400">
-              <li><a href="#nosotros" className="hover:text-white transition-colors">Nosotros</a></li>
-              <li><a href="#proyectos" className="hover:text-white transition-colors">Proyectos</a></li>
-              <li><a href="#blog" className="hover:text-white transition-colors">Blog Técnico</a></li>
-              <li><a href="#contacto" className="hover:text-white transition-colors">Soporte Express</a></li>
+            <h4 className="font-bold text-lg mb-6 uppercase tracking-tight">Empresa</h4>
+            <ul className="space-y-4 text-neutral-400 text-sm">
+              <li><Link to="/nosotros" className="hover:text-brand-primary transition-colors">Nosotros</Link></li>
+              <li><Link to="/proyectos" className="hover:text-brand-primary transition-colors">Proyectos</Link></li>
+              <li><Link to="/blog" className="hover:text-brand-primary transition-colors">Blog Técnico</Link></li>
+              <li><Link to="/soporte-express" className="hover:text-brand-primary transition-colors">Soporte Express</Link></li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-bold text-lg mb-6">Contacto</h4>
-            <ul className="space-y-4 text-neutral-400">
+            <h4 className="font-bold text-lg mb-6 uppercase tracking-tight">Contacto</h4>
+            <ul className="space-y-4 text-neutral-400 text-sm">
               <li className="flex items-start gap-3">
                 <MapPin size={20} className="text-brand-primary flex-shrink-0" />
                 <span>Santiago, Chile. Cobertura nacional para eventos.</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={20} className="text-brand-primary flex-shrink-0" />
-                <span>+56 9 7777 7777</span>
+                <span>+56 9 9579 1499</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-brand-primary flex-shrink-0" />

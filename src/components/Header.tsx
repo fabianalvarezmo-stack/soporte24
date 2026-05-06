@@ -1,10 +1,20 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Phone, MessageSquare, ChevronRight } from 'lucide-react';
+import { Menu, X, Facebook, Instagram, Linkedin, MessageSquare } from 'lucide-react';
+
+// Using a custom X icon since lucide doesn't have it by default in some versions
+const XIcon = () => (
+  <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M4 4l11.733 16h4.267l-11.733 -16z" />
+    <path d="M4 20l6.768 -6.768m2.46 -2.46l6.772 -6.772" />
+  </svg>
+);
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -14,69 +24,94 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location.pathname]);
+
   const navLinks = [
-    { name: 'Nosotros', href: '#nosotros' },
-    { name: 'Equipos', href: '#equipos' },
-    { name: 'Arriendos', href: '#arriendos' },
-    { name: 'Contacto', href: '#contacto' },
+    { name: 'Inicio', href: '/' },
+    { name: 'Nosotros', href: '/nosotros' },
+    { name: 'Equipos', href: '/equipos' },
+    { name: 'Proyectos', href: '/proyectos' },
+    { name: 'Blog Técnico', href: '/blog' },
+    { name: 'Soporte Express', href: '/soporte-express' },
+    { name: 'Contacto', href: '/contacto' },
+  ];
+
+  const socialLinks = [
+    { icon: <Facebook size={18} />, href: "https://www.facebook.com/Soporte-24-Horas-Ltda-331223913554847/", label: "Facebook" },
+    { icon: <XIcon />, href: "https://x.com/soporte24horas", label: "X" },
+    { icon: <Linkedin size={18} />, href: "https://cl.linkedin.com/company/soporte-24-horas-ltda-", label: "LinkedIn" },
+    { icon: <Instagram size={18} />, href: "https://www.instagram.com/soporte24horas.cl/", label: "Instagram" },
   ];
 
   return (
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? 'py-3 bg-brand-dark shadow-lg' : 'py-5 bg-brand-dark'
+        isScrolled ? 'py-2 bg-brand-dark shadow-lg' : 'py-4 bg-brand-dark'
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between text-white">
-        <motion.div 
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="flex items-center gap-3"
-        >
-          <div className="w-8 h-8 bg-brand-primary rounded flex items-center justify-center text-white font-black text-lg">
-            S
+        <Link to="/" className="flex items-center gap-3">
+          <div className="h-10 md:h-14 overflow-hidden flex items-center">
+            <img 
+               src="https://soporte24horas.cl/wp-content/uploads/2021/04/logo-soporte.png" 
+               alt="Soporte 24 Horas" 
+               className="h-full w-auto object-contain brightness-0 invert" 
+               referrerPolicy="no-referrer"
+            />
           </div>
-          <span className="font-extrabold text-xl tracking-tight uppercase">
-            Soporte<span className="text-brand-primary">24</span>Horas
-          </span>
-        </motion.div>
+        </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-6">
+        <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link, i) => (
-            <motion.a
+            <motion.div
               key={link.name}
-              href={link.href}
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.1 }}
-              className="text-[13px] font-bold uppercase tracking-wider text-white/70 hover:text-brand-primary transition-colors"
             >
-              {link.name}
-            </motion.a>
+              <Link
+                to={link.href}
+                className={`text-[11px] font-black uppercase tracking-widest transition-colors ${
+                  location.pathname === link.href ? 'text-brand-primary underline underline-offset-8' : 'text-white/70 hover:text-brand-primary'
+                }`}
+              >
+                {link.name}
+              </Link>
+            </motion.div>
           ))}
         </nav>
 
         <div className="flex items-center gap-4">
-          <motion.a
-            href="tel:+56977777777"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="hidden lg:flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/90 px-4 py-2 hover:text-brand-primary transition-colors"
-          >
-            <Phone size={14} />
-            Llamar
-          </motion.a>
-          <motion.a
-            href="#cotizar"
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="bg-brand-primary text-white text-xs font-bold uppercase tracking-widest px-6 py-3 rounded hover:bg-white hover:text-brand-dark transition-all"
+          <div className="hidden md:flex items-center gap-3">
+            {socialLinks.map((link, i) => (
+              <motion.a
+                key={i}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.5 + i * 0.1 }}
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/5 hover:bg-brand-primary hover:scale-110 transition-all"
+                title={link.label}
+              >
+                {link.icon}
+              </motion.a>
+            ))}
+          </div>
+
+          <Link
+            to="/contacto"
+            className="bg-brand-primary text-white text-[11px] font-black uppercase tracking-widest px-6 py-3 rounded hover:bg-white hover:text-brand-dark transition-all"
           >
             Cotizar
-          </motion.a>
+          </Link>
+          
           <button 
-            className="md:hidden p-2 text-neutral-600"
+            className="lg:hidden p-2 text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             {mobileMenuOpen ? <X /> : <Menu />}
@@ -91,25 +126,37 @@ export default function Header() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-b border-neutral-100 overflow-hidden"
+            className="lg:hidden bg-brand-dark border-t border-white/5 overflow-hidden"
           >
             <div className="container mx-auto px-6 py-8 flex flex-col gap-6">
               {navLinks.map((link) => (
-                <a
+                <Link
                   key={link.name}
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-lg font-medium text-neutral-900 border-b border-neutral-50 pb-2"
+                  to={link.href}
+                  className={`text-lg font-bold border-b border-white/5 pb-2 uppercase tracking-tight ${
+                    location.pathname === link.href ? 'text-brand-primary' : 'text-white/90'
+                  }`}
                 >
                   {link.name}
-                </a>
+                </Link>
               ))}
-              <div className="flex flex-col gap-4 pt-4">
-                <a href="tel:+56977777777" className="flex items-center justify-center gap-2 py-3 rounded-xl border border-neutral-200">
-                  <Phone size={18} />
-                  Llamar
-                </a>
-                <a href="https://wa.me/56977777777" className="flex items-center justify-center gap-2 py-3 rounded-xl bg-[#25D366] text-white">
+              
+              <div className="flex gap-4 pt-4 border-t border-white/5">
+                {socialLinks.map((link, i) => (
+                  <a
+                    key={i}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 flex items-center justify-center rounded-xl bg-white/5 text-white"
+                  >
+                    {link.icon}
+                  </a>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <a href="https://wa.me/56995791499" className="flex items-center justify-center gap-2 py-4 rounded bg-[#25D366] text-white font-bold uppercase tracking-widest text-sm">
                   <MessageSquare size={18} />
                   WhatsApp
                 </a>

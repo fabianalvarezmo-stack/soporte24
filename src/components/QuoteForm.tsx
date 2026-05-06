@@ -24,26 +24,31 @@ export default function QuoteForm() {
 
   if (submitted) {
     return (
-      <section id="cotizar" className="py-24 animate-in fade-in duration-700">
-        <div className="container mx-auto px-6 max-w-4xl">
-          <div className="bg-brand-primary rounded-[3rem] p-12 lg:p-20 text-center text-white relative overflow-hidden">
-            <div className="absolute top-0 right-0 p-12 opacity-10">
-               <CheckCircle2 size={200} />
-            </div>
+      <section className="py-24 min-h-[600px] flex items-center justify-center animate-in fade-in zoom-in duration-700">
+        <div className="container mx-auto px-6 max-w-2xl">
+          <div className="bg-white rounded-xl card-shadow p-12 lg:p-16 text-center border-t-8 border-brand-primary">
             <div className="relative z-10 flex flex-col items-center">
-              <div className="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-8">
-                <CheckCircle2 size={40} className="text-white" />
-              </div>
-              <h2 className="text-4xl font-bold mb-4">¡Cotización Recibida!</h2>
-              <p className="text-white/80 text-lg mb-8 max-w-md mx-auto">
-                Hemos recibido tu solicitud. Un ejecutivo se contactará contigo en menos de 2 horas hábiles.
+              <motion.div 
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                transition={{ type: 'spring', damping: 12 }}
+                className="w-24 h-24 bg-brand-bg rounded-full flex items-center justify-center mb-8 text-brand-primary"
+              >
+                <CheckCircle2 size={48} />
+              </motion.div>
+              <h2 className="text-3xl font-black text-brand-dark mb-4 uppercase tracking-tight">¡Mensaje Enviado!</h2>
+              <p className="text-brand-muted text-xl font-medium mb-10 max-w-md mx-auto italic leading-relaxed">
+                "Gracias por su mensaje, lo contactamos a la brevedad"
               </p>
               <button 
                 onClick={() => setSubmitted(false)}
-                className="px-8 py-3 bg-white text-brand-primary rounded-full font-bold hover:scale-105 transition-transform"
+                className="px-10 py-4 bg-brand-dark text-white rounded font-black uppercase tracking-widest text-xs hover:bg-brand-primary transition-all"
               >
-                Enviar otra solicitud
+                Volver al formulario
               </button>
+              <p className="mt-8 text-xs text-brand-muted uppercase tracking-widest opacity-50">
+                Su solicitud ha sido dirigida a: contacto@soporte24horas.cl
+              </p>
             </div>
           </div>
         </div>
@@ -82,7 +87,7 @@ export default function QuoteForm() {
             <div className="mt-12 p-8 bg-neutral-900 rounded-[2rem] text-white">
                <p className="text-sm text-neutral-400 uppercase tracking-widest font-bold mb-2">Contacto Directo</p>
                <div className="text-2xl font-bold mb-2">contacto@soporte24horas.cl</div>
-               <div className="text-brand-primary">+56 9 7777 7777</div>
+               <div className="text-brand-primary">+56 9 9579 1499</div>
             </div>
           </div>
 

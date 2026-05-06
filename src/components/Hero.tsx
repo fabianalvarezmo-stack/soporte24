@@ -1,12 +1,30 @@
-import { motion } from 'motion/react';
-import { ChevronRight, ArrowRight, Shield, Rocket, Monitor } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { ArrowRight, Monitor } from 'lucide-react';
+
+const carouselImages = [
+  "https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&q=80&w=1200",
+  "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200"
+];
 
 export default function Hero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % carouselImages.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
       {/* Background Orbs */}
       <div className="absolute top-0 right-0 -translate-y-1/4 translate-x-1/4 w-[600px] h-[600px] bg-brand-primary/10 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[400px] h-[400px] bg-brand-accent/5 blur-[100px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-0 left-0 translate-y-1/4 -translate-x-1/4 w-[400px] h-[400px] bg-brand-primary/5 blur-[100px] rounded-full pointer-events-none" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
@@ -64,45 +82,52 @@ export default function Hero() {
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, scale: 0.9, rotate: 2 }}
-            animate={{ opacity: 1, scale: 1, rotate: 0 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
             className="relative"
           >
-            {/* Visual Representation of Hardware */}
-            <div className="relative z-10 w-full aspect-video rounded-3xl overflow-hidden shadow-2xl bg-neutral-900">
-               <img 
-                 src="https://images.unsplash.com/photo-1593642702821-c8da6771f0c6?auto=format&fit=crop&q=80&w=1200" 
-                 alt="Notebook y equipo tecnológico"
-                 className="w-full h-full object-cover opacity-80"
-                 referrerPolicy="no-referrer"
-               />
+            {/* Visual Representation of Hardware - Carousel */}
+            <div className="relative z-10 w-full aspect-video rounded-lg overflow-hidden shadow-2xl bg-neutral-900 border border-brand-border">
+               <AnimatePresence mode="wait">
+                 <motion.img 
+                   key={currentImageIndex}
+                   src={carouselImages[currentImageIndex]} 
+                   alt={`Tecnología Soporte 24 Horas ${currentImageIndex}`}
+                   initial={{ opacity: 0 }}
+                   animate={{ opacity: 0.8 }}
+                   exit={{ opacity: 0 }}
+                   transition={{ duration: 0.8 }}
+                   className="w-full h-full object-cover"
+                   referrerPolicy="no-referrer"
+                 />
+               </AnimatePresence>
                <div className="absolute inset-0 bg-gradient-to-t from-neutral-900/80 via-transparent to-transparent" />
                <div className="absolute bottom-6 left-6 right-6">
-                 <div className="glass p-4 rounded-2xl flex items-center justify-between">
+                 <div className="glass p-4 rounded-lg flex items-center justify-between">
                     <div className="flex items-center gap-3">
                        <div className="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center text-brand-primary">
                           <Monitor size={20} />
                        </div>
                        <div>
-                          <p className="text-xs font-bold text-neutral-900 uppercase tracking-wider">Última Tecnología</p>
-                          <p className="text-sm text-neutral-600">Modelos 2024 Disponibles</p>
+                          <p className="text-xs font-bold text-brand-dark uppercase tracking-wider">Última Tecnología</p>
+                          <p className="text-xs text-brand-muted">Modelos Actualizados 2024</p>
                        </div>
                     </div>
-                    <div className="flex -space-x-2">
-                       {[1,2,3,4].map(i => (
-                         <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-neutral-200 overflow-hidden">
-                            <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="User" />
-                         </div>
-                       ))}
+                    <div className="flex gap-1">
+                      {carouselImages.map((_, i) => (
+                        <div 
+                          key={i} 
+                          className={`w-1.5 h-1.5 rounded-full transition-all duration-300 ${i === currentImageIndex ? 'w-4 bg-brand-primary' : 'bg-brand-primary/20'}`} 
+                        />
+                      ))}
                     </div>
                  </div>
                </div>
             </div>
             
             {/* Background elements for depth */}
-            <div className="absolute -top-6 -right-6 w-full h-full border-2 border-brand-primary rounded-3xl -z-0 opacity-20" />
-            <div className="absolute -bottom-6 -left-6 w-1/2 h-1/2 bg-brand-accent/10 rounded-full blur-3xl -z-10" />
+            <div className="absolute -top-4 -right-4 w-full h-full border border-brand-primary/20 rounded-lg -z-0" />
           </motion.div>
         </div>
       </div>
