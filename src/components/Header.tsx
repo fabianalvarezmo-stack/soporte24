@@ -57,7 +57,7 @@ export default function Header() {
             <img 
                src="/soporte24/img/logo.png" 
                alt="Notebooks y Pantallas" 
-               className="h-[5px] w-[10px] object-contain brightness-0 invert" 
+               className="h-[50px] w-[100px] object-cover brightness-0 invert" 
                referrerPolicy="no-referrer"
             />
           </div>
