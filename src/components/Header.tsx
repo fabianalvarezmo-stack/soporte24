@@ -55,8 +55,8 @@ export default function Header() {
         <Link to="/" className="flex items-center gap-3">
           <div className="h-10 md:h-14 overflow-hidden flex items-center">
             <img 
-               src="https://soporte24horas.cl/wp-content/uploads/2021/04/logo-soporte.png" 
-               alt="Soporte 24 Horas" 
+               src="/soporte24/img/logo.png" 
+               alt="Notebooks y Pantallas" 
                className="h-full w-auto object-contain brightness-0 invert" 
                referrerPolicy="no-referrer"
             />
