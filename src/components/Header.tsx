@@ -52,16 +52,16 @@ export default function Header() {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between text-white">
-        {/* <Link to="/" className="flex items-center gap-3"> */}
+        <Link to="/" className="flex items-center gap-3">
           <div className="h-10 md:h-14 overflow-hidden flex items-center">
             <img 
-               src="../../1.jpg"
-               alt="Notebooks y Pantallas" 
+               src="https://soporte24horas.cl/wp-content/uploads/2021/04/logo-soporte.png" 
+               alt="Soporte 24 Horas" 
                className="h-full w-auto object-contain brightness-0 invert" 
                referrerPolicy="no-referrer"
             />
           </div>
-        {/*        </Link>*/}
+        </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link, i) => (

@@ -3,11 +3,11 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Monitor } from 'lucide-react';
 
 const carouselImages = [
-  "../../1.jpg",
-  "../soporte24/img/P2curva.JPG",
-  "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1603302576837-37561b2e2302?auto=format&fit=crop&q=80&w=1200",
-  "https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&q=80&w=1200"
+  "/soporte24/img/1.jpg",
+  "/soporte24/img/2.jpg",
+  "/soporte24/img/3.jpg",
+  "/soporte24/img/4.jpg",
+  "/soporte24/img/5.jpg"
 ];
 
 export default function Hero() {
@@ -49,14 +49,8 @@ export default function Hero() {
             <p className="text-lg text-brand-muted mb-10 leading-relaxed max-w-xl text-balance">
               Equipamiento de última generación para oficinas, home office y eventos en Santiago de Chile. Notebooks, Apple, Pantallas LED
             </p>
-            <br><br><br>
-            <p>
-              <img src="../../1.jpg" alt="Nueva img">
-            </p>
 
-          
             <div className="flex flex-wrap gap-4 mb-12">
-            
               <motion.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
