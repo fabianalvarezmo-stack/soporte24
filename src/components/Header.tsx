@@ -52,7 +52,7 @@ export default function Header() {
       }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between text-white">
-        <Link to="/" className="flex items-center gap-3">
+        {/* <Link to="/" className="flex items-center gap-3"> */}
           <div className="h-10 md:h-14 overflow-hidden flex items-center">
             <img 
                src="../img/logo.png" 
@@ -61,7 +61,7 @@ export default function Header() {
                referrerPolicy="no-referrer"
             />
           </div>
-        </Link>
+        {/*        </Link>*/}
 
         <nav className="hidden lg:flex items-center gap-8">
           {navLinks.map((link, i) => (
