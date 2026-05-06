@@ -47,7 +47,7 @@ export default function Hero() {
             </h1>
             
             <p className="text-lg text-brand-muted mb-10 leading-relaxed max-w-xl text-balance">
-              Equipamiento de última generación para oficinas, home office y eventos en Santiago de Chile. Notebooks, Apple, Pantallas LED
+              Equipamiento de última generación para Oficinas, Home Office y Eventos Corporativos en Santiago de Chile. Computadores, Notebooks y Pantallas LED
             </p>
 
             <div className="flex flex-wrap gap-4 mb-12">
@@ -75,7 +75,7 @@ export default function Hero() {
                 <div className="text-[12px] text-brand-muted uppercase font-bold tracking-wider">Experiencia</div>
               </div>
               <div className="border-l-2 border-brand-primary pl-4">
-                <div className="font-extrabold text-2xl text-brand-dark">99.9%</div>
+                <div className="font-extrabold text-2xl text-brand-dark">Reemplazo inmediato</div>
                 <div className="text-[12px] text-brand-muted uppercase font-bold tracking-wider">Uptime Garantizado</div>
               </div>
             </div>
@@ -109,9 +109,10 @@ export default function Hero() {
                        <div className="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center text-brand-primary">
                           <Monitor size={20} />
                        </div>
+                      <br><br/><br><br/><br><br/>
                        <div>
                           <p className="text-xs font-bold text-brand-dark uppercase tracking-wider">Última Tecnología</p>
-                          <p className="text-xs text-brand-muted">Modelos Actualizados 2024</p>
+                          <p className="text-xs text-brand-muted">Modelos Actualizados</p>
                        </div>
                     </div>
                     <div className="flex gap-1">
