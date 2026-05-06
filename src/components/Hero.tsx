@@ -3,8 +3,8 @@ import { motion, AnimatePresence } from 'motion/react';
 import { ArrowRight, Monitor } from 'lucide-react';
 
 const carouselImages = [
-  "/soporte24/img/1.jpg",
-  "/soporte24/img/2.jpg",
+  "/soporte24/img/2025-12-05%at%00.51.29.jpeg",
+  "/soporte24/img/a%piso_22.jpg",
   "/soporte24/img/3.jpg",
   "/soporte24/img/4.jpg",
   "/soporte24/img/5.jpg"
