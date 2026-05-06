@@ -55,7 +55,7 @@ export default function Header() {
         {/* <Link to="/" className="flex items-center gap-3"> */}
           <div className="h-10 md:h-14 overflow-hidden flex items-center">
             <img 
-               src="../img/logo.png" 
+               src="../../img/logo.png" 
                alt="Notebooks y Pantallas" 
                className="h-full w-auto object-contain brightness-0 invert" 
                referrerPolicy="no-referrer"
