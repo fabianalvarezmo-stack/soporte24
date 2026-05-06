@@ -49,8 +49,14 @@ export default function Hero() {
             <p className="text-lg text-brand-muted mb-10 leading-relaxed max-w-xl text-balance">
               Equipamiento de última generación para oficinas, home office y eventos en Santiago de Chile. Notebooks, Apple, Pantallas LED
             </p>
+            
+            <p>
+              <img src="../../1.jpg" />
+            </p>
 
+          
             <div className="flex flex-wrap gap-4 mb-12">
+            
               <motion.a
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
