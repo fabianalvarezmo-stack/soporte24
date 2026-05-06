@@ -109,7 +109,6 @@ export default function Hero() {
                        <div className="w-10 h-10 rounded-full bg-brand-primary/20 flex items-center justify-center text-brand-primary">
                           <Monitor size={20} />
                        </div>
-                      <br><br/><br><br/><br><br/>
                        <div>
                           <p className="text-xs font-bold text-brand-dark uppercase tracking-wider">Última Tecnología</p>
                           <p className="text-xs text-brand-muted">Modelos Actualizados</p>
